@@ -36,7 +36,7 @@ var cheerioHtmlFile=function(htmlfile){
     return cheerio.loads(fs.readFileSync(htmlfile));
     };
 
-var loadChecks=function(htmlfile,cheksfile){
+var loadChecks=function(cheksfile){
     return JSON.parse(fs.readFileSync(cheksfile));
 };
 
