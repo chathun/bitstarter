@@ -33,7 +33,7 @@ var assertFileExists=function(infile){
     };
 
 var cheerioHtmlFile=function(htmlfile){
-    return cheerio.loads(fs.readFileSync(htmlfile));
+    return cheerio.load(fs.readFileSync(htmlfile));
     };
 
 var loadChecks=function(cheksfile){
@@ -59,8 +59,8 @@ var clone=function(fn){
 
 if(require.main==module){
     program
-    .option('-c,--checks<check_file>','Path to checks.json',clone(assertFileExists),CHECKSFILE_DEFAULT)
-    .option('-f,--file<html_file>','Path to checks.json',clone(assertFileExists),HTMLFILE_DEFAULT)
+    .option('-c,--checks <check_file>','Path to checks.json',clone(assertFileExists),CHECKSFILE_DEFAULT)
+    .option('-f,--file <html_file>','Path to checks.json',clone(assertFileExists),HTMLFILE_DEFAULT)
 	.parse(process.argv);
     var checkJson=checkHtmlFile(program.file,program.checks);
     var outJson=JSON.stringify(checkJson,null,4);
